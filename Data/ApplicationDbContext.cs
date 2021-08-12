@@ -12,5 +12,6 @@ namespace Articles.Data
             : base(options)
         {
         }
+        public DbSet<Articles.Models.Blog> Blog { get; set; }
     }
 }
