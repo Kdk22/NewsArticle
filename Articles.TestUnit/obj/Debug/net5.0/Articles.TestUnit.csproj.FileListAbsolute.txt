@@ -1,0 +1,6 @@
+E:\assignments\kim\cshap\Articles\Articles.TestUnit\obj\Debug\net5.0\Articles.TestUnit.csproj.AssemblyReference.cache
+E:\assignments\kim\cshap\Articles\Articles.TestUnit\obj\Debug\net5.0\Articles.TestUnit.GeneratedMSBuildEditorConfig.editorconfig
+E:\assignments\kim\cshap\Articles\Articles.TestUnit\obj\Debug\net5.0\Articles.TestUnit.AssemblyInfoInputs.cache
+E:\assignments\kim\cshap\Articles\Articles.TestUnit\obj\Debug\net5.0\Articles.TestUnit.AssemblyInfo.cs
+E:\assignments\kim\cshap\Articles\Articles.TestUnit\obj\Debug\net5.0\Articles.TestUnit.csproj.CoreCompileInputs.cache
+E:\assignments\kim\cshap\Articles\Articles.TestUnit\obj\Debug\net5.0\Articles.TestUnit.MvcApplicationPartsAssemblyInfo.cache
