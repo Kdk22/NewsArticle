@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Articles.Data.Migrations
+namespace Articles.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210812203416_InitialCreate")]
+    [Migration("20210813104038_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,10 @@ namespace Articles.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("image")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("user_id")

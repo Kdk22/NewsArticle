@@ -1,5 +1,7 @@
-﻿using Articles.Models;
+﻿using Articles.Data;
+using Articles.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,15 +13,27 @@ namespace Articles.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        // public HomeController(ILogger<HomeController> logger)
+        // {
+        //     _logger = logger;
+        // }
+
+        public async Task<IActionResult> Index()
         {
+            return View(await _context.Blog.ToListAsync());
+        }
+
+        public IActionResult ViewItem(int id)
+        {
+
             return View();
         }
 
