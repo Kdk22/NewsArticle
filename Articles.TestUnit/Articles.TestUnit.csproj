@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Articles.Main\Articles.Main.csproj" />
+  </ItemGroup>
+
 </Project>

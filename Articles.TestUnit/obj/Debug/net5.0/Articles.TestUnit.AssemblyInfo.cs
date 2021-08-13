@@ -11,6 +11,8 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Articles.Main, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "E:\\assignments\\kim\\cshap\\Articles\\Articles.Main", "Articles.Main.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Articles.TestUnit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
