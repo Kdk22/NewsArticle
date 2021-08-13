@@ -7,9 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Articles.Data;
 using Articles.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+
 
 namespace Articles.Controllers
 {
+    [Authorize]
     public class BlogsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -48,6 +52,7 @@ namespace Articles.Controllers
         {
             return View();
         }
+        //User.Identity.GetUserId();
 
         // POST: Blogs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -58,6 +63,10 @@ namespace Articles.Controllers
         {
             if (ModelState.IsValid)
             {
+                // 
+                ClaimsPrincipal currentUser = this.User;
+                var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                blog.user_id = currentUserID;
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

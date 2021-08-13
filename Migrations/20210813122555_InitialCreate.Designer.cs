@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Articles.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210813104038_InitialCreate")]
+    [Migration("20210813122555_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,8 +37,8 @@ namespace Articles.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("user_id")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("user_id")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 

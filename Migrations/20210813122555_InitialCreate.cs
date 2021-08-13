@@ -54,7 +54,7 @@ namespace Articles.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(type: "TEXT", nullable: true),
                     Content = table.Column<string>(type: "TEXT", nullable: true),
-                    user_id = table.Column<int>(type: "INTEGER", nullable: false),
+                    user_id = table.Column<string>(type: "TEXT", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     image = table.Column<string>(type: "TEXT", nullable: false)
                 },

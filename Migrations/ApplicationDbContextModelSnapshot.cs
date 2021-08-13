@@ -35,8 +35,8 @@ namespace Articles.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("user_id")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("user_id")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 

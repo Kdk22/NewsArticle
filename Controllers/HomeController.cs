@@ -31,13 +31,28 @@ namespace Articles.Controllers
             return View(await _context.Blog.ToListAsync());
         }
 
-        public IActionResult ViewItem(int id)
+        public async Task<IActionResult> ReadMore(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            return View();
+            var blog = await _context.Blog
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (blog == null)
+            {
+                return NotFound();
+            }
+
+            return View(blog);
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult About()
         {
             return View();
         }
