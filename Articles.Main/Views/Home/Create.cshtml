@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<h1>Create</h1>
+
+<h4>Blog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label id="Title" class="control-label"></label>
+                <input name="Title" id="TitleInput" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label id="Content" class="control-label"></label>
+                <textarea name="Content" id="ContentInput" class="form-control">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label id="CreateTime" class="control-label"></label>
+                <input type="datetime" id="CreateTimeInput" name="CreateTime" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label id="image" class="control-label"></label>
+                <input type="file" name="image" id="imageInput" class="form-control" onchange="encodeImageFileAsURL(this)" />
+            </div>
+            <div class="form-group">
+                <input type="submit" id="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    $(input).on('change', function () {
+        readImage($(this)).done(function (base64Data) { alert(base64Data); });
+    });
+
+    var imagebase64 = "";
+
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            imagebase64 = reader.result;
+        }
+        reader.readAsDataURL(file);
+    }
+    $("#submit").click(function () {
+        $.post("/api/PostBlog",
+            {
+                Title: $("TitleInput").value,
+                Content: $("ContentInput").value,
+                CreateTime: $("CreateTimeInput").value,
+                imageInput: $("imageInput").value,
+                user_id: 1
+            },
+            function (data, status) {
+                alert("Successfuly posted");
+            });
+    });
+</script>
